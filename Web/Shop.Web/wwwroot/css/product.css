@@ -1,0 +1,31 @@
+﻿.product {
+    border: 2px solid green;
+}
+.product-information{
+    border: 2px solid black;
+}
+.cover-image{
+    border: 2px solid red;
+}
+.productAdsBanner{
+    background-color:aqua;
+    border-radius: 10px;
+    padding:10px;
+    margin:30px;
+    text-align:center;
+}
+.test{
+    border: 2px solid black;
+}
+
+.my-products-row{
+    padding: 10px;
+}
+.card-image {
+    height: 300px;
+}
+
+.blockquote {
+    padding: 20px;
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1), 0 0 0 2px rgb(255,255,255), 0.3em 0.3em 1em rgba(0,0,0,0.3);
+}

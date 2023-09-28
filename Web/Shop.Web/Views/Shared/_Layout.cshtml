@@ -1,0 +1,139 @@
+﻿@using Shop.Common
+@using Shop.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject Shop.Services.Data.CardService count
+@inject Shop.Services.Data.RequestService requestCount
+<!DOCTYPE html>
+<style>
+    .notificationCount {
+        color: red;
+        margin:7px;
+    }
+    .notification {
+        border-radius: 13px;
+        height: 30px;
+        width: 30px;
+        font-size: 20px;
+        margin-left: 15px;
+        border-style: solid;
+        border-color: forestgreen;
+    }
+</style>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
+
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link href="~/css/mdb.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/product.css" rel="stylesheet" asp-append-version="true" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <section class="d-flex align-items-center flex-column">
+                    <div>
+                        <form class="form" method="post" asp-controller="search" asp-action="index">
+                            <div class="input-group">
+                                <div class="form-outline">
+                                    <input id="search-input " type="search" id="form1" class="form-control rounded" name="search" />
+                                    <label class="form-label" for="form1">Търсене</label>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle location-button"
+                                            type="button"
+                                            id="dropdownMenuButton"
+                                            data-mdb-toggle="dropdown"
+                                            data-toggle="dropdown"
+                                            aria-expanded="false"
+                                            name="region">
+                                        Изберете област
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText3('София')">София</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText3('Варна')">Варна</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText3('Бургас')">Бургас</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText3('Русе')">Русе</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeButtonText3('Пловдив')">Пловдив</a></li>
+                                    </ul>
+                                    <div id="region">
+                                    </div>
+                                </div>
+                                <button id="search-button" type="submit" class="btn btn-primary rounded search-button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <form class="form" method="post" asp-controller="search" asp-action="searchuser">
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <input id="search-input" type="search" class="form-control rounded" name="name" />
+                            <label class="form-label" for="search-input">Търсене</label>
+                        </div>
+                        <button id="search-button" type="submit" class="btn btn-primary rounded search-button">
+                            find user
+                        </button>
+                    </div>
+                </form>
+                <div class="notification">
+                    <a id="myBtn" asp-controller="friendRequest" asp-action="friendrequest">
+                        <span class="notificationCount">@requestCount.RequestCount(this.UserManager.GetUserId(this.User))</span>
+                    </a>
+                </div>
+                @*try to make api to show all friend request but doesnt work*@
+                @*<div class="notification">
+                    <partial name="_ModalPartial" />
+                    </div>*@
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @this.RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    @this.RenderSection("Scripts", required: false)
+
+</body>
+</html>
