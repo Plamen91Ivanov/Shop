@@ -118,7 +118,7 @@
 </style>
 
 <div class="productAdsBanner">
-    <h1>put here ad</h1>
+    <h1>Ad banner </h1>
 </div>
 <hr />
  
@@ -164,18 +164,18 @@
             </div>
             <div class="col-6">
                 <p class="font-weight-bold old-price"></p>
-                <p class="font-weight-bold new-price">@Model.IntegerPrice<sup>@Model.Coins</sup><span>Лв</span></p>
+                <p class="font-weight-bold new-price">@Model.IntegerPrice<sup>@Model.Coins</sup><span>Lv</span></p>
                 <hr />
                 @if (this.SignInManager.IsSignedIn(this.User))
                 {
                     <button type="submit" class="btn btn-lg btn-primary" onclick="addProductToCard(@Model.Id)"
                             data-toggle="modal" data-target="#largeModal">
-                        Добави в количката
+                        Buy
                     </button>
                 }
                 else
                 {
-                    <a class="btn btn-lg btn-primary" asp-route-returnUrl="/product/@Model.Url" asp-area="Identity" asp-page="/Account/Login">Добави в количката</a>
+                    <a class="btn btn-lg btn-primary" asp-route-returnUrl="/product/@Model.Url" asp-area="Identity" asp-page="/Account/Login">Buy</a>
                 }
                 <hr />
                 @if (this.SignInManager.IsSignedIn(this.User))
@@ -216,21 +216,17 @@
 
 <div class="row">
     <div class="product-information text-left col-8">
-        <p>Добавена на : @Model.CreatedOn</p>
+        <p>Adden on : @Model.CreatedOn</p>
         <hr />
         <h1>@Model.Name</h1>
-        <p>Обявата е видяна от @Model.SeenCount потребителя</p>
+        <p>View count : @Model.SeenCount</p>
         <hr />
-        <h3>Описание</h3>
+        <h3>Description</h3>
         <p>@Model.Description</p>
-        <div class="row">
-            <div class="col-4"><span>Преглеждания</span></div>
-        </div>
     </div>
     <div class="col-4 product-information">
-        <h3>Потребител</h3>
+        <h3>User</h3>
         <p>@Model.UserUserName</p>
-        <p>Обявата е видяна от @Model.SeenCount потребителя</p>
     </div>
 </div>
 
@@ -238,7 +234,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <button class="close"></button>
-            <h4>Продуктът е добавен в количката</h4>
+            <h4>The product has been added to the cart</h4>
         </div>
     </div>
 </div>
@@ -248,7 +244,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header ">
-                <h4 class="modal-title text-success font-italic font-weight-bolder" id="myModalLabel">Продуктът е добавен в количката</h4>
+                <h4 class="modal-title text-success font-italic font-weight-bolder" id="myModalLabel">The product has been added to the cart</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -263,14 +259,14 @@
                     </div>
                     <div class="col-1">
                         <br />
-                        <p class="font-weight-bold new-price">@Model.IntegerPrice<sup>@Model.Coins</sup><span>Лв</span></p>
+                        <p class="font-weight-bold new-price">@Model.IntegerPrice<sup>@Model.Coins</sup><span>Lv</span></p>
                     </div>
                     <div class="col-1">
 
                     </div>
                     <div class="col-3">
                         <br />
-                        <a type="button" asp-controller="Vendor" asp-action="Index" class="btn btn-primary">виж количката</a>
+                        <a type="button" asp-controller="Vendor" asp-action="Index" class="btn btn-primary">Next</a>
                     </div>
                 </div>
 

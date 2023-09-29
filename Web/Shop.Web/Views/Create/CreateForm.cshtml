@@ -11,14 +11,13 @@
 </style>
 <div class="row">
     <div class="col-6">
-        <button type="button" class="btn btn-primary" onclick="createProductForm()">Добавете продукт</button>
+        <button type="button" class="btn btn-primary" onclick="createProductForm()">Add Product</button>
     </div>
     <div class="col-6">
-        <button type="button" class="btn btn-primary" onclick="createBrandForm()">Добавете бранд</button>
+        <button type="button" class="btn btn-primary" onclick="createBrandForm()">Add Brand</button>
     </div>
 </div>
 <br />
-
 
 <div id="create-product-form"  style="display:none">
     <div class="row text-center">
@@ -27,11 +26,11 @@
             <form method="post" enctype="multipart/form-data" asp-controller="Create" asp-action="Create">
                 <div class="form-outline mb-4">
                     <input type="text" id="form6Example3" class="form-control" name="Name" />
-                    <label class="form-label" for="form6Example3">Име на продукта</label>
+                    <label class="form-label" for="form6Example3">Product name</label>
                 </div>
                 <div class="form-outline mb-4">
                     <input type="number" id="form6Example4" class="form-control" name="Price" />
-                    <label class="form-label" for="form6Example4">Цена</label>
+                    <label class="form-label" for="form6Example4">Price</label>
                 </div>
                 <br />
                 @*<div class="dropdown text-left">
@@ -61,12 +60,12 @@
                         Изберете категория
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Електроника') ">Електроника</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Мода')">Мода</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('За градината')">За градината</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Имоти')">Имоти</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Авто')">Авто</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Други')">Други</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Electronics') ">Electronics</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Fashion')">Fashion</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Garden')">Garden</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Real Estate')">Real Estate</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Auto')">Auto</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Somthing Else')">Somthing Else</a></li>
                     </ul>
                     <input id="categoryInput" type="hidden" name="category" />
                 </div>
@@ -75,15 +74,15 @@
                 <!-- Message input -->
                 <div class="form-outline mb-4">
                     <textarea class="form-control" id="form6Example7" rows="4" name="Description"></textarea>
-                    <label class="form-label" for="form6Example7">Описание</label>
+                    <label class="form-label" for="form6Example7">Description</label>
                 </div>
-                <label class="form-label font-weight-bolder" for="customFile">Главна снимка</label>
+                <label class="form-label font-weight-bolder" for="customFile">Cover Image</label>
                 <input type="file" class="form-control" id="customFile" name="image" />
 
-                <label class="form-label font-weight-bolder" for="customFile">Снимки</label>
+                <label class="form-label font-weight-bolder" for="customFile">Images</label>
                 <input type="file" class="form-control" id="customFile" name="images" multiple />
                 <br />
-                <button type="submit" class="btn btn-primary btn-block mb-4 ">Публикувай</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4 ">Publish</button>
             </form>
         </div>
     </div>
@@ -97,17 +96,17 @@
                 <!-- Text input -->
                 <div class="form-outline mb-4">
                     <input type="text" id="form6Example3" class="form-control" name="Name" />
-                    <label class="form-label" for="form6Example3">Име на бранда</label>
+                    <label class="form-label" for="form6Example3">Brand name</label>
                 </div>
                 <!-- Message input -->
                 <div class="form-outline mb-4">
                     <textarea class="form-control" id="form6Example7" rows="4" name="Description"></textarea>
-                    <label class="form-label" for="form6Example7">Описание</label>
+                    <label class="form-label" for="form6Example7">Description</label>
                 </div>
-                <label class="form-label font-weight-bolder" for="customFile">Лого</label>
+                <label class="form-label font-weight-bolder" for="customFile">Logo</label>
                 <input type="file" class="form-control" id="customFile" name="Logo" />
                 <br />
-                <button type="submit" class="btn btn-primary btn-block mb-4 ">Добави</button>
+                <button type="submit" class="btn btn-primary btn-block mb-4 ">Save</button>
             </form>
         </div>
     </div>

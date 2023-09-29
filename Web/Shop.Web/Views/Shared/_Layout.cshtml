@@ -52,7 +52,7 @@
                         <form class="form" method="post" asp-controller="search" asp-action="index">
                             <div class="input-group">
                                 <div class="form-outline">
-                                    <input id="search-input form1" type="search" placeholder="Търсене" class="form-control rounded" name="search" />
+                                    <input id="search-input form1" type="search" placeholder="Search" class="form-control rounded" name="search" />
                                 </div>
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle location-button"
@@ -62,14 +62,14 @@
                                             data-toggle="dropdown"
                                             aria-expanded="false"
                                             name="region">
-                                        Изберете област
+                                        Region
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('София')">София</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Варна')">Варна</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Бургас')">Бургас</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Русе')">Русе</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Пловдив')">Пловдив</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Sofiq')">Sofiq</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Varna')">Varna</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Burgas')">Burgas</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Ruse')">Ruse</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Plovdiv')">Plovdiv</a></li>
                                     </ul>
                                     <div id="region">
                                     </div>
@@ -84,7 +84,7 @@
                 <form class="form" method="post" asp-controller="search" asp-action="searchuser">
                     <div class="input-group">
                         <div class="form-outline">
-                            <input id="search-input" type="search" class="form-control rounded" name="name" placeholder="Търсене" />
+                            <input id="search-input" type="search" class="form-control rounded" name="name" placeholder="Search" />
                         </div>
                         <button id="search-button" type="submit" class="btn btn-primary rounded search-button">
                             <i class="fas fa-search"></i>

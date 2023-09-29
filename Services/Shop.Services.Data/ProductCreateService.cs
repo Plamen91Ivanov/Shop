@@ -76,22 +76,22 @@ namespace Shop.Services.Data
 
             switch (category)
             {
-                case "Електроника":
+                case "Electorinics":
                     categoryId = 1;
                     break;
-                case "Авто":
+                case "Auto":
                     categoryId = 2;
                     break;
-                case "Мода":
+                case "Fashon":
                     categoryId = 7;
                     break;
-                case "Други":
+                case "Somthing Else":
                     categoryId = 6;
                     break;
-                case "Градина":
+                case "Garden":
                     categoryId = 4;
                     break;
-                case "Недвижими имоти":
+                case "Real Estate":
                     categoryId = 3;
                     break;
                 default:
