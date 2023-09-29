@@ -98,8 +98,9 @@ namespace Shop.Services.Data
                     categoryId = 9;
                     break;
             }
-
+            ;
             //fix fk problem with brainId !
+            // fix hardcoded numbers and get it from the form !
             Product addProduct = new Product
             {
                 UserId = userId,
@@ -107,9 +108,9 @@ namespace Shop.Services.Data
                 Description = description,
                 Price = price,
                 Location = location,
-                CategoryId = categoryId,
+                CategoryId = 4,
                 Image = imageName,
-                BrandId = 3,
+                BrandId = 1,
             };
 
             await this.product.AddAsync(addProduct);

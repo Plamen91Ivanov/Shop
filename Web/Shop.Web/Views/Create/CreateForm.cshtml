@@ -18,6 +18,8 @@
     </div>
 </div>
 <br />
+
+
 <div id="create-product-form"  style="display:none">
     <div class="row text-center">
         <br />
@@ -26,21 +28,21 @@
                 <div class="form-outline mb-4">
                     <input type="text" id="form6Example3" class="form-control" name="Name" />
                     <label class="form-label" for="form6Example3">Име на продукта</label>
-                </div> 
+                </div>
                 <div class="form-outline mb-4">
                     <input type="number" id="form6Example4" class="form-control" name="Price" />
                     <label class="form-label" for="form6Example4">Цена</label>
                 </div>
                 <br />
-                <div class="dropdown text-left">
+                @*<div class="dropdown text-left">
                     <button class="btn btn-primary dropdown-toggle"
                             type="button"
-                            id="dropDownCategory"
+                            id="dropdownMenuButton"
                             data-mdb-toggle="dropdown"
                             aria-expanded="false">
                         Изберете категория
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropDownCategory">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Електроника')">Електроника</a></li>
                         <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Мода')">Мода</a></li>
                         <li><a class="dropdown-item" href="#" onclick="changeCategoryText('За градината')">За градината</a></li>
@@ -48,8 +50,27 @@
                         <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Авто')">Авто</a></li>
                         <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Други')">Други</a></li>
                     </ul>
-                    <input id="categoryInput" type="hidden" name="category"/>
+                    <input id="categoryInput" type="hidden" name="category" />
+                </div>*@
+                <div class="dropdown text-left">
+                    <button class="btn btn-primary dropdown-toggle"
+                            type="button" id="dropdownMenuCategoty"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                        Изберете категория
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Електроника') ">Електроника</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Мода')">Мода</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('За градината')">За градината</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Имоти')">Имоти</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Авто')">Авто</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeCategoryText('Други')">Други</a></li>
+                    </ul>
+                    <input id="categoryInput" type="hidden" name="category" />
                 </div>
+
                 <br />
                 <!-- Message input -->
                 <div class="form-outline mb-4">
@@ -112,8 +133,7 @@
         }
     }
     function changeCategoryText(text) {
-        dropDownCategory.innerHTML = text;
-        categoryInput.value = text;
+        document.getElementById("dropdownMenuCategoty").innerText  = text;
     }
     function changeRegionText(text) {
         dropDownRegion.innerHTML = text;

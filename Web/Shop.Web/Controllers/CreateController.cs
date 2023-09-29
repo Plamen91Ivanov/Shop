@@ -56,7 +56,7 @@ namespace Shop.Web.Controllers
             if (images != null)
             {
             var img = await this.product.CreateImage(images, createProduct);
-           // await CloudinaryExtension.UploadAsync(this.cloudinary, images);
+            // await CloudinaryExtension.UploadAsync(this.cloudinary, images);
             }
 
             return this.RedirectToAction("MyProducts", "Product");

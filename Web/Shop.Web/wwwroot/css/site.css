@@ -68,15 +68,14 @@ body {
     justify-content: left;
     align-items: center;
     font-size: 20px;
-    border-style: solid;
-    border-color: forestgreen;
+  /*  border-style: solid;
+    border-color: forestgreen;*/
 }
 
 .count-buble {
     position: absolute;
     height: 20px;
     width: 20px;
-    background-color: #85cb33;
     border-radius: 500px;
     font-size: 14px;
     display: inline-flex;
