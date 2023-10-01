@@ -128,16 +128,18 @@
         <div class="mySlides text-center">
             <img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@Model.Image">
         </div>
+        <div class="mySlides text-center">
+            <img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@Model.Image">
+        </div>
 
         @{ var imageNumber = 2;}
 
         @foreach (var item in Model.Images)
         {
 
-            <div class="mySlides text-center">
-                <img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name">
-            </div>
-        }
+    <div class="mySlides text-center">
+        <img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name">
+    </div>}
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
@@ -149,12 +151,11 @@
             </div>
             @foreach (var item in Model.Images)
             {
-                <div class="column">
-                    <img class="demo cursor image-gallery"
-                         src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name" onclick="currentSlide(@imageNumber)" alt="@item.Name">
-                </div>
-                imageNumber++;
-            }
+    <div class="column">
+        <img class="demo cursor image-gallery"
+             src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name" onclick="currentSlide(@imageNumber)" alt="@item.Name">
+    </div>                imageNumber++;
+                }
         </div>
     </div>
     <div class="col-lg-7">
