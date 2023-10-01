@@ -16,7 +16,7 @@ namespace Shop.Services.Data
 {
     public class ProductCreateService : IProductCreateService
     {
-        private const int InitialPosts = 4;
+        private const int InitialPosts = 6;
         private readonly IDeletableEntityRepository<Product> product;
         private readonly IDeletableEntityRepository<ProductImage> productImage;
         private readonly IDeletableEntityRepository<ImageProduct> imageProduct;
@@ -35,7 +35,11 @@ namespace Shop.Services.Data
 
         public IEnumerable<T> GetAllPromotedProducts<T>()
         {
-            var promotedProduct = this.product.All().Take(InitialPosts).To<T>().ToList();
+            //get N number products 
+            //var promotedProduct = this.product.All().Take(InitialPosts).To<T>().ToList();
+
+            //get all product IT IS NOT PROMOTED ! FIX IT 
+            var promotedProduct = this.product.All().To<T>().ToList();
             return promotedProduct;
         }
 
@@ -97,10 +101,11 @@ namespace Shop.Services.Data
                 default:
                     categoryId = 9;
                     break;
-            }
-            ;
+            };
             //fix fk problem with brainId !
             // fix hardcoded numbers and get it from the form !
+            var noImage = "NULL";
+
             Product addProduct = new Product
             {
                 UserId = userId,
@@ -109,7 +114,7 @@ namespace Shop.Services.Data
                 Price = price,
                 Location = location,
                 CategoryId = 4,
-                Image = imageName,
+                Image = noImage,
                 BrandId = 1,
             };
 
