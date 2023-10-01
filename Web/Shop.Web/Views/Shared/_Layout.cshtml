@@ -65,16 +65,16 @@
                                         Region
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Sofiq')">Sofiq</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Varna')">Varna</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Burgas')">Burgas</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Ruse')">Ruse</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="changeRegionButtonText('Plovdiv')">Plovdiv</a></li>
+                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Sofiq')">Sofiq</a></li>
+                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Varna')">Varna</a></li>
+                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Burgas')">Burgas</a></li>
+                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Ruse')">Ruse</a></li>
+                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Plovdiv')">Plovdiv</a></li>
                                     </ul>
                                     <div id="region">
                                     </div>
                                 </div>
-                                <button id="search-button" type="submit" class="btn btn-primary rounded search-button mr-2 ">
+                                <button id="search-button" type="submit" class="btn btn-primary rounded search-button mr-2 ml-1">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -84,9 +84,9 @@
                 <form class="form" method="post" asp-controller="search" asp-action="searchuser">
                     <div class="input-group">
                         <div class="form-outline">
-                            <input id="search-input" type="search" class="form-control rounded" name="name" placeholder="Search" />
+                            <input id="search-input" type="search" class="form-control rounded" name="name" placeholder="Search user" />
                         </div>
-                        <button id="search-button" type="submit" class="btn btn-primary rounded search-button">
+                        <button id="search-button" type="submit" class="btn btn-primary rounded search-button ml-1">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
