@@ -1,13 +1,10 @@
 ﻿using Shop.Data.Common.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Shop.Data.Models
 {
     public class Brand : BaseDeletableModel<int>
     {
-
         public Brand()
         {
             this.Products = new HashSet<Product>();

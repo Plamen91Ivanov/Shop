@@ -26,13 +26,19 @@ namespace Shop.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userId = await this.userManager.GetUserAsync(this.User);
+            //var userId = await this.userManager.GetUserAsync(this.User);
+            //my brands by userId
+            //var brand = new BrandsViewModel
+            //{
+            //    Brands = this.brandService.BrandsByUserId<BrandViewModel>(userId.Id),
+            //};
 
-            var brand = new BrandsViewModel
+            var allBrands = new BrandsViewModel
             {
-                Brands = this.brandService.BrandsByUserId<BrandViewModel>(userId.Id),
+                Brands = this.brandService.AllBrands<BrandViewModel>(),
             };
-            return this.View(brand);
+
+            return this.View(allBrands);
         }
 
         public IActionResult Create()

@@ -18,7 +18,10 @@
         margin-left: 15px;
         border-style: solid;
         border-color: forestgreen;
-    } 
+    }
+    li {
+        cursor: default;
+    }
 </style>
 <html>
 <head>
@@ -48,11 +51,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <section class="d-flex align-items-center flex-column">
-                    <div>
-                        <form class="form" method="post" asp-controller="search" asp-action="index">
+                        <form class="form" method="post" asp-controller="search" asp-action="indexx">
                             <div class="input-group">
                                 <div class="form-outline">
-                                    <input id="search-input form1" type="search" placeholder="Search" class="form-control rounded" name="search" />
+                                    <input id="search-input form1" type="search" placeholder="Search product" class="form-control rounded" name="search" />
                                 </div>
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle location-button"
@@ -62,14 +64,14 @@
                                             data-toggle="dropdown"
                                             aria-expanded="false"
                                             name="region">
-                                        Region
+                                        All Regions
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Sofiq')">Sofiq</a></li>
-                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Varna')">Varna</a></li>
-                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Burgas')">Burgas</a></li>
-                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Ruse')">Ruse</a></li>
-                                        <li><a class="dropdown-item"   onclick="changeRegionButtonText('Plovdiv')">Plovdiv</a></li>
+                                        <li class="dropdown-item" onclick="changeRegionButtonText('Sofiq')">Sofiq</li>
+                                        <li class="dropdown-item" onclick="changeRegionButtonText('Varna')">Varna</li>
+                                        <li class="dropdown-item" onclick="changeRegionButtonText('Burgas')">Burgas</li>
+                                        <li class="dropdown-item" onclick="changeRegionButtonText('Ruse')">Ruse</li>
+                                        <li class="dropdown-item" onclick="changeRegionButtonText('Plovdiv')">Plovdiv</li>
                                     </ul>
                                     <div id="region">
                                     </div>
@@ -79,23 +81,23 @@
                                 </button>
                             </div>
                         </form>
-                    </div>
                 </section>
-                <form class="form" method="post" asp-controller="search" asp-action="searchuser">
+                <form class="form" method="post" asp-controller="search" asp-action="searchUser">
                     <div class="input-group">
                         <div class="form-outline">
                             <input id="search-input" type="search" class="form-control rounded" name="name" placeholder="Search user" />
                         </div>
+
                         <button id="search-button" type="submit" class="btn btn-primary rounded search-button ml-1">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>
-               
+
                 @*try to make api to show all friend request but doesnt work*@
                 @*<div class="notification">
-                    <partial name="_ModalPartial" />
-                    </div>*@
+        <partial name="_ModalPartial" />
+        </div>*@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                 </div>

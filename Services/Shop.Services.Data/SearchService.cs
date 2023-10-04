@@ -22,8 +22,17 @@ namespace Shop.Services.Data
 
         public IEnumerable<T> Search<T>(string search, string region)
         {
-            var result = this.product.All().Where(x => x.Name.Contains(search) && x.Location == region).To<T>().ToList();
-            return result;
+
+            if (region == null)
+            {
+                var result = this.product.All().Where(x => x.Name.Contains(search)).To<T>().ToList();
+                return result;
+            }
+            else
+            {
+                var result = this.product.All().Where(x => x.Name.Contains(search) && x.Location == region).To<T>().ToList();
+                return result;
+            }
         }
 
         public IEnumerable<T> SearchUser<T>(string name)

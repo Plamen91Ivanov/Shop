@@ -71,6 +71,7 @@
     .category-image {
         width: 50px;
         height: 50px;
+        border-radius: 8px;
     }
 
     .ball:nth-of-type(3) {
@@ -100,10 +101,11 @@
             transform: translateY(-10px);
         }
     }
+
     .location-button {
         width: 170px !important;
     }
-</style> 
+</style>
 <div class="text-center categories bg-light promo-container blockquote">
     <h3>Category</h3>
     <div class="row category-items">
@@ -145,79 +147,49 @@
         </div>
     </div>
 </div>
-<br />
-
-<div class="text-center categories bg-light promo-container blockquote">
-    <h3>Top brands</h3>
+<br /> 
+ <div class="text-center categories bg-light promo-container blockquote">
+    
+     <a asp-controller="Brand" asp-action="Index">
+         <h3>Brands</h3>
+     </a>
     <div class="row category-items">
         @foreach (var brand in Model.Brands)
         {
-            <div class="col-3">
-                <a href="/brand/brand/@brand.Id"><img class="img-thumbnail" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@brand.Logo" /></a>
-                <h5>@brand.Name</h5>
-                <h5>@brand.Description</h5>
-            </div>
-        }
+<div class="col-2">
+    <a href="/brand/brand/@brand.Id"><img class="category-image" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@brand.Logo" /></a>
+    <h5>@brand.Name</h5>
+    <h5>@brand.Description</h5>
+</div>}
     </div>
-</div>
+</div> 
 <br />
 <div class="text-center bg-light promo-container blockquote">
-    @*<div class="">
-        <h4>Sponsored</h4>
-    </div>*@
-    <div class="row" id="row">
-        @foreach (var product in Model.Products)
-        {
-            <div class="col-3">
-                <a href="/product/@product.Url">
-                    <div class="card shadow p-3 mb-5 bg-white rounded">
-                        @if (product.Image == null)
-                        {
-                            <img class="card-image" src="/Images/NoImages.jpg">
-                        }
-                        else
-                        {
-                            <img class="card-image rounded" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@product.Image">
-                        }
-                        <div class="card-body">
-                            <h5 class="card-title">@product.Name</h5>
-                            <p class="card-text text-left">Гр.@product.Location</p>
-                            <p class="card-text text-left price-text">@product.Price $</p>
-                        </div>
-                    </div>
-                </a>
-         </div>
-         }
-    </div>
-</div>
-<div class="text-center bg-light promo-container blockquote">
-    <h1>@Model.Products.Count()</h1>
     <div class="card-deck">
         @foreach (var product in Model.Products)
         {
-    <div class="col-3">
-        <div class="card">
-            <a href="/product/@product.Url">
-                <img class="card-img-top" src="/Images/NoImages.jpg">
-                @*@if (product.Image == null)
+<div class="col-3">
+    <div class="card">
+        <a href="/product/@product.Url">
+            <img class="card-img-top" src="/Images/NoImages.jpg">
+            @*@if (product.Image == null)
+                        {
+                    <img class="card-img-top" src="/Images/NoImages.jpg"> }
+                else
                 {
-            <img class="card-img-top" src="/Images/NoImages.jpg"> }
-        else
-        {
-            <img class="card-img-top" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@product.Image">}*@
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
+                    <img class="card-img-top" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@product.Image">}*@
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
         </div>
-        }
     </div>
-                </div>
+</div>}
+    </div>
+</div>
 
 
 <div class="container" id="container">
@@ -303,7 +275,7 @@
         }
         loading.classList.remove('show');
     }
-     
+
     const searchButton = document.getElementById('search-button');
     const searchInput = document.getElementById('search-input');
     searchButton.addEventListener('click', () => {
@@ -311,3 +283,36 @@
         alert(inputValue);
     });
 </script>
+
+
+
+<!-- First card design -->
+<!--<div class="text-center bg-light promo-container blockquote">-->
+@*<div class="">
+        <h4>Sponsored</h4>
+    </div>*@
+<!--<div class="row" id="row">
+        @foreach (var product in Model.Products)
+        {
+            <div class="col-3">
+                <a href="/product/@product.Url">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        @if (product.Image == null)
+                        {
+                            <img class="card-image" src="/Images/NoImages.jpg">
+                        }
+                        else
+                        {
+                            <img class="card-image rounded" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@product.Image">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text text-left">Гр.@product.Location</p>
+                            <p class="card-text text-left price-text">@product.Price $</p>
+                        </div>
+                    </div>
+                </a>
+         </div>
+         }
+    </div>
+</div>-->

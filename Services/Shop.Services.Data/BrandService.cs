@@ -73,12 +73,19 @@ namespace Shop.Services.Data
             return brand;
         }
 
+        public IEnumerable<T> AllBrands<T>()
+        {
+            var brands = this.brand.All().To<T>().ToList();
+            return brands;
+        }
+
         public IEnumerable<T> GetBestBrands<T>()
         {
             var brands = this.brand.All().Take(4).To<T>().ToList();
             return brands;
         }
 
+        // wtf ?
         public IEnumerable<T> AllProduct<T>(int id)
         {
             var products = this.product.All().Where(x => x.BrandId == id).To<T>().ToList();

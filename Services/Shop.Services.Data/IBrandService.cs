@@ -12,6 +12,8 @@ namespace Shop.Services.Data
 
         T BrandById<T>(int id);
 
+        IEnumerable<T> AllBrands<T>();
+
         IEnumerable<T> GetBestBrands<T>();
 
         IEnumerable<T> AllProduct<T>(int id);
