@@ -4,8 +4,7 @@
 @model Shop.Web.ViewModels.Create.ProductInputModel
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
-
+ 
 <style>
     body {
         font-family: Arial;
@@ -20,8 +19,8 @@
     }
 
     .image-slider {
-        width: 100%;
-        height: 700px;
+        width: 90%;
+        height: 400px;
     }
 
     img {
@@ -124,45 +123,62 @@
  
 <div class="row">
     <div class="col-lg-5">
-
         <div class="mySlides text-center">
-            <img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@Model.Image">
+            @*<img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@Model.Image">*@
+            <img class="image-slider" src="/Images/NoImages.jpg">
         </div>
-
         @{ var imageNumber = 2;}
 
-        @foreach (var item in Model.Images)
+        @* @foreach (var item in Model.Images)
         {
-
-    <div class="mySlides text-center">
-        <img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name">
-    </div>}
+            <img class="image-slider" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name">
+        } *@
+        <div class="mySlides text-center">
+            <img class="image-slider" src="/Images/car.png">
+        </div>
+        <div class="mySlides text-center">
+            <img class="image-slider" src="/Images/NoImages.jpg">
+        </div>
+        <div class="mySlides text-center">
+            <img class="image-slider" src="/Images/car.png">
+        </div>
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
 
         <div class="row row-iamges">
-            <div class="column">
-                <img class="demo cursor image-gallery"
-                     src="http://res.cloudinary.com/ds1ne4hps/image/upload/@Model.Image" onclick="currentSlide(1)" alt="The Woods">
+            <div class="col">
+                <img class="demo cursor image-gallery" src="/Images/NoImages.jpg" onclick="currentSlide(1)">
+                <img class="demo cursor image-gallery" src="/Images/car.png" onclick="currentSlide(1)">
+                <img class="demo cursor image-gallery" src="/Images/NoImages.jpg" onclick="currentSlide(1)">
+                <img class="demo cursor image-gallery" src="/Images/car.png" onclick="currentSlide(1)">
             </div>
-            @foreach (var item in Model.Images)
+            @*@foreach (var item in Model.Images)
             {
-    <div class="column">
-        <img class="demo cursor image-gallery"
-             src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name" onclick="currentSlide(@imageNumber)" alt="@item.Name">
-    </div>                imageNumber++;
-                }
+                <div class="column">
+                <img class="demo cursor image-gallery"
+                     src="http://res.cloudinary.com/ds1ne4hps/image/upload/@item.Name" onclick="currentSlide(@imageNumber)" alt="@item.Name">
+                </div>
+                imageNumber++;
+                }*@
         </div>
     </div>
     <div class="col-lg-7">
         <div class="row">
             <div class="col-6">
-
+                <p>Adden on : @Model.CreatedOn</p>
+                <hr />
+                <h1>@Model.Name</h1>
+                <p>View count : @Model.SeenCount</p>
+                <hr />
+                <h3>Description</h3>
+                <p>@Model.Description</p>
             </div>
+        </div>
             <div class="col-6">
                 <p class="font-weight-bold old-price"></p>
-                <p class="font-weight-bold new-price">@Model.IntegerPrice<sup>@Model.Coins</sup><span>Lv</span></p>
+                <p class="font-weight-bold new-price">@Model.IntegerPrice.<sup>99</sup><span> Lv</span></p>
+                @*<p class="font-weight-bold new-price">@Model.IntegerPrice.<sup>@Model.Coins</sup><span> Lv</span></p>*@
                 <hr />
                 @if (this.SignInManager.IsSignedIn(this.User))
                 {
@@ -176,7 +192,7 @@
                     <a class="btn btn-lg btn-primary" asp-route-returnUrl="/product/@Model.Url" asp-area="Identity" asp-page="/Account/Login">Buy</a>
                 }
                 <hr />
-                @if (this.SignInManager.IsSignedIn(this.User))
+                @*@if (this.SignInManager.IsSignedIn(this.User))
                 {
                     <button type="submit" class="btn btn-lg btn-primary" onclick=""
                             data-toggle="modal" data-target="#largeModal">
@@ -186,7 +202,7 @@
                 else
                 {
                     <a class="btn btn-lg btn-primary" asp-route-returnUrl="/product/@Model.Url" asp-area="Identity" asp-page="/Account/Login">Video</a>
-                }
+                }*@
                 <hr />
                 @if (this.SignInManager.IsSignedIn(this.User))
                 {
@@ -211,7 +227,6 @@
 </div>
 
 <hr />
-
 <div class="row">
     <div class="product-information text-left col-8">
         <p>Adden on : @Model.CreatedOn</p>

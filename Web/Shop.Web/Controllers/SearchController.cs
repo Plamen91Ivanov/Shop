@@ -18,7 +18,7 @@ namespace Shop.Web.Controllers
             this.search = search;
         }
 
-        public IActionResult Indexx(string search, string region)
+        public IActionResult Index(string search, string region)
         {
             this.ViewBag.Search = search;
             this.ViewBag.Region = region;

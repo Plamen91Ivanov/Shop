@@ -68,11 +68,8 @@
             animation-delay: 0.1s;
         }
 
-    .category-image {
-        width: 50px;
-        height: 50px;
-        border-radius: 8px;
-    }
+  
+     
 
     .ball:nth-of-type(3) {
         animation-delay: 0.2s;
@@ -149,7 +146,6 @@
 </div>
 <br /> 
  <div class="text-center categories bg-light promo-container blockquote">
-    
      <a asp-controller="Brand" asp-action="Index">
          <h3>Brands</h3>
      </a>
@@ -157,10 +153,11 @@
         @foreach (var brand in Model.Brands)
         {
 <div class="col-2">
-    <a href="/brand/brand/@brand.Id"><img class="category-image" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@brand.Logo" /></a>
+    <a href="/brand/brand/@brand.Id"><img class="brand-image" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@brand.Logo" /></a>
     <h5>@brand.Name</h5>
     <h5>@brand.Description</h5>
-</div>}
+</div>
+        }
     </div>
 </div> 
 <br />
