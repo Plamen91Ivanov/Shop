@@ -82,6 +82,13 @@
         position: absolute;
         top: 0;
     }
+
+    .old-price{
+        color:brown;
+    }
+    .new-price{
+        color:forestgreen;
+    }
      
     /* Container for image text */
     .caption-container {
@@ -166,32 +173,33 @@
     <div class="col-lg-7">
         <div class="row">
             <div class="col-6">
-                <p>Adden on : @Model.CreatedOn</p>
+                <h4>Adden on : @Model.CreatedOn</h4>
                 <hr />
-                <h1>@Model.Name</h1>
-                <p>View count : @Model.SeenCount</p>
+                <h4>Product name : @Model.Name</h4>
                 <hr />
-                <h3>Description</h3>
-                <p>@Model.Description</p>
+                <h4>View count : <span class="border font-weight-bold">@Model.SeenCount</span></h4>
+                <hr />
+                <h4>Description : @Model.Description </h4>
+                <hr />
             </div>
-        </div>
+       
             <div class="col-6">
-                <p class="font-weight-bold old-price"></p>
-                <p class="font-weight-bold new-price">@Model.IntegerPrice.<sup>99</sup><span> Lv</span></p>
+                @*for this discount need to add discount prop to db to set old price and new price*@
+                @*<p class="font-weight-bold old-price h4 old-price" ><del>3.<sup>99</sup><span> Lv</span></del></p>*@
+                <p class="font-weight-bold new-price h4 new-price">@Model.IntegerPrice.<sup>99</sup><span> Lv</span></p>
                 @*<p class="font-weight-bold new-price">@Model.IntegerPrice.<sup>@Model.Coins</sup><span> Lv</span></p>*@
                 <hr />
                 @if (this.SignInManager.IsSignedIn(this.User))
                 {
-                    <button type="submit" class="btn btn-lg btn-primary" onclick="addProductToCard(@Model.Id)"
-                            data-toggle="modal" data-target="#largeModal">
-                        Buy
-                    </button>
-                }
-                else
-                {
-                    <a class="btn btn-lg btn-primary" asp-route-returnUrl="/product/@Model.Url" asp-area="Identity" asp-page="/Account/Login">Buy</a>
-                }
+            <button type="submit" class="btn btn-lg btn-primary" onclick="addProductToCard(@Model.Id)"
+                    data-toggle="modal" data-target="#largeModal">
+                Add product to card
+            </button> }
+                        else
+                        {
+            <a class="btn btn-lg btn-primary" asp-route-returnUrl="/product/@Model.Url" asp-area="Identity" asp-page="/Account/Login">Buy</a>}
                 <hr />
+            </div>
                 @*@if (this.SignInManager.IsSignedIn(this.User))
                 {
                     <button type="submit" class="btn btn-lg btn-primary" onclick=""
@@ -204,7 +212,7 @@
                     <a class="btn btn-lg btn-primary" asp-route-returnUrl="/product/@Model.Url" asp-area="Identity" asp-page="/Account/Login">Video</a>
                 }*@
                 <hr />
-                @if (this.SignInManager.IsSignedIn(this.User))
+                @*@if (this.SignInManager.IsSignedIn(this.User))
                 {
                     <button type="submit" class="btn btn-lg btn-primary" onclick="messageForm()">
                         Message
@@ -220,37 +228,20 @@
                 <textarea id="messageArea"></textarea>
                 <input id="hiddenInput" type="hidden" value="@Model.UserId" />
                 <button type="submit" class="btn btn-lg btn-primary" onclick="sendMessage()">Send</button>
-            </div>
+            </div>*@
             </div>
         </div>
-    </div>
-</div>
-
+    </div> 
 <hr />
-<div class="row">
-    <div class="product-information text-left col-8">
-        <p>Adden on : @Model.CreatedOn</p>
-        <hr />
-        <h1>@Model.Name</h1>
-        <p>View count : @Model.SeenCount</p>
-        <hr />
-        <h3>Description</h3>
-        <p>@Model.Description</p>
-    </div>
-    <div class="col-4 product-information">
-        <h3>User</h3>
-        <p>@Model.UserUserName</p>
-    </div>
-</div>
 
-<div class="modal-dialog">
+@*<div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
             <button class="close"></button>
             <h4>The product has been added to the cart</h4>
         </div>
     </div>
-</div>
+</div>*@
 
 <!-- large modal -->
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -265,14 +256,16 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-2">
-                        <img class="image-gallery" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@Model.Image">
+                        @*<img class="image-gallery" src="http://res.cloudinary.com/ds1ne4hps/image/upload/@Model.Image">*@
+                        <img class="image-gallery" src="/Images/NoImages.jpg">
                     </div>
                     <div class="col-5">
 
                     </div>
                     <div class="col-1">
                         <br />
-                        <p class="font-weight-bold new-price">@Model.IntegerPrice<sup>@Model.Coins</sup><span>Lv</span></p>
+                        @*<p class="font-weight-bold new-price">@Model.IntegerPrice<sup>@Model.Coins</sup><span>Lv</span></p>*@
+                        <p class="font-weight-bold new-price h4 new-price">@Model.IntegerPrice.<sup>99</sup><span> Lv</span></p>
                     </div>
                     <div class="col-1">
 
@@ -282,11 +275,11 @@
                         <a type="button" asp-controller="Vendor" asp-action="Index" class="btn btn-primary">Next</a>
                     </div>
                 </div>
-
             </div>
-            <div class="modal-footer text-center">
+            @*<div class="text-center">
                 <h1>Some adds here</h1>
-            </div>
+                <h1>Or similar products </h1>
+            </div>*@
         </div>
     </div>
 </div>
